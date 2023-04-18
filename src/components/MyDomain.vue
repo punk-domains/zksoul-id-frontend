@@ -11,14 +11,6 @@
     </span>
   </td>
   <td>
-    <span 
-      class="text-click" 
-      @click="this.$router.push({name: 'TransferDomain', params: {tld: domain.split('.')[1], domainName: domain.split('.')[0]}})"
-    >
-      Transfer domain
-    </span>
-  </td>
-  <td>
     <span v-if="getUserSelectedName === domain">
       <i class="bi bi-check2-circle"></i> Default
     </span>

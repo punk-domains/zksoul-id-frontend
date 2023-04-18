@@ -1,8 +1,8 @@
 <template>
   <div class="container-fluid text-center mt-3">
-    <router-link v-if="isActivated && isNetworkSupported" to="/about">About</router-link>
+    <router-link to="/about">About</router-link>
     
-    <span v-if="isActivated && isNetworkSupported"> | </span>
+    <span> | </span>
 
     <router-link v-if="isActivated && isNetworkSupported" to="/profile">Profile</router-link>
     

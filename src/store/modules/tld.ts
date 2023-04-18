@@ -1,14 +1,17 @@
 import { ethers } from 'ethers';
-import tldAbi from '../../abi/PunkTLD.json';
+import TldAbi from '../../abi/PunkTLD.json';
 import MinterAbi from "../../abi/Minter.json";
 import useChainHelpers from "../../hooks/useChainHelpers";
+import { useEthers } from 'vue-dapp';
 
 const { getFallbackProvider } = useChainHelpers();
+const { address, chainId, isActivated } = useEthers();
 
 export default {
   namespaced: true,
   
   state: () => ({ 
+    balance: 0, // user's domain balance
     discountPercentage: 0,
     tldName: ".testzksoul",
     tldAddress: "0xD15316d5D6Ce29Db5d1bE3191398F7F2C5e31CAA", // TODO
@@ -71,7 +74,11 @@ export default {
       return state.minterTldPrice4;
     },
     getMinterTldPrice5(state) {
-      return state.minterTldPrice5;
+      if (isActivated.value && state.balance > 0) {
+        return state.minterTldPrice5;
+      } else {
+        return 0;
+      }
     },
     getReferralFee(state) {
       return state.referralFee;
@@ -79,10 +86,14 @@ export default {
   },
 
   mutations: {
+    setBalance(state, balance) {
+      state.balance = balance;
+    },
+
     setTldContract(state) {
       let fProvider = getFallbackProvider(state.tldChainId);
 
-      const tldIntfc = new ethers.utils.Interface(tldAbi);
+      const tldIntfc = new ethers.utils.Interface(TldAbi);
       state.tldContract = new ethers.Contract(state.tldAddress, tldIntfc, fProvider);
     },
 
@@ -123,6 +134,16 @@ export default {
   },
 
   actions: {
+    async checkUserDomainBalance({commit, state}) {
+      let fProvider = getFallbackProvider(chainId.value);
+
+      const tldIntfc = new ethers.utils.Interface(TldAbi);
+      const tldContract = new ethers.Contract(state.tldAddress, tldIntfc, fProvider);
+
+      const balance = await tldContract.balanceOf(address.value);
+      commit("setBalance", balance);
+    },
+
     async fetchMinterContractData({commit, state}) {
       commit("setMinterLoadingData", true);
 

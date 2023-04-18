@@ -36,7 +36,9 @@
 
     <div class="text-align-header">
       <p class="mt-5 price-text">
-          Name price: {{getPrice}} {{getPaymentTokenName}}
+          Price: 
+          <span v-if="Number(getPrice) > 0">{{getPrice}} {{getPaymentTokenName}}</span>
+          <span v-if="Number(getPrice) == 0">FREE (5+ char ID)</span>
       </p>
     </div>
 
@@ -115,7 +117,8 @@
             </tr>
             <tr>
               <td>5+ characters</td>
-              <td>{{getMinterTldPrice5}} {{getPaymentTokenName}}</td>
+              <td v-if="Number(getMinterTldPrice5) > 0">{{getMinterTldPrice5}} {{getPaymentTokenName}}</td>
+              <td v-if="Number(getMinterTldPrice5) == 0">FREE</td>
             </tr>
           </tbody>
         </table>
@@ -205,6 +208,7 @@ export default {
 
   methods: {
     ...mapActions("user", ["fetchCanUserBuy", "getPaymentTokenDecimals"]),
+    ...mapActions("tld", ["checkUserDomainBalance"]),
     ...mapMutations("user", ["addDomainManually", "setPaymentTokenAllowance"]),
 
     async buyDomain() {
@@ -262,6 +266,7 @@ export default {
             onClick: () => window.open(this.getBlockExplorerBaseUrl+"/tx/"+tx.hash, '_blank').focus()
           });
           this.addDomainManually(fullDomainName);
+          this.checkUserDomainBalance();
           this.waiting = false;
         } else {
           this.toast.dismiss(toastWait);
