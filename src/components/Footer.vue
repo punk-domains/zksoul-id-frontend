@@ -21,7 +21,7 @@
 
     <a class="icons" href="http://docs.punk.domains" target="_blank"><i class="bi bi-journal-text"></i></a>
 
-    <a class="icons" target="_blank" href="https://github.com/punk-domains"><i class="bi bi-github"></i></a>
+    <a class="icons" target="_blank" href="https://github.com/punk-domains/zksoul-id-frontend"><i class="bi bi-github"></i></a>
 
     <a class="icons" target="_blank" href="https://discord.gg/8dSrwrAQeu"><i class="bi bi-discord"></i></a>
 
