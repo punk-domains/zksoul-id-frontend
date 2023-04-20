@@ -394,10 +394,10 @@
 		}
 
 		function H(e, t) {
-      e = 280; // TODO: change chain ID
+      e = 324; // TODO: change chain ID
 			let r;
 			const n = s[e];
-			return n && (r = `https://testnet.era.zksync.dev`), r // TODO
+			return n && (r = `https://mainnet.era.zksync.io`), r // TODO
 		}
 
 		function z(e, t) {
