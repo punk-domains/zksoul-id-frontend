@@ -15,6 +15,12 @@
         <div class="d-flex ms-auto">
 
           <div class="navbar-menu-buttons">
+            <a 
+              class="btn btn-primary mx-2 navbar-menu-btn" 
+              href="https://mintsquare.io/collection/zksync/0xe36507ad67ac0ae6d27d22b407a9338b136315df" 
+              target="_blank"
+            >Collection</a>
+
             <div v-if="isActivated" class="btn-group mx-2 navbar-menu-btn">
               <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 {{getNetworkName}}
