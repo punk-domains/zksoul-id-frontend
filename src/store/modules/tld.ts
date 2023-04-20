@@ -18,7 +18,7 @@ export default {
     tldContract: null,
     tldChainId: 324,
     tldChainName: "zkSync Era",
-    minterAddress: "0xF74Ed4A6c76452dd55533697e3A477f266e70f21", // TODO
+    minterAddress: "0x31A1aea6BB4b61B93543ECa23Abfa672Df087F5E", // TODO
     minterContract: null,
     minterLoadingData: false,
     minterPaused: true,
