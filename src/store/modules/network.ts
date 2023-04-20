@@ -10,14 +10,14 @@ export default {
     networkCurrency: "ETH",
     networkName: "Unsupported Network",
     supportedNetworks: {
-      280: "zkSync Era Testnet",
+      324: "zkSync Era",
     }
   }),
 
   getters: { 
     getBlockExplorerBaseUrl() {
       // TODO
-      return "https://goerli.explorer.zksync.io";
+      return "https://explorer.zksync.io";
     },
     
     getChainId() {
@@ -68,7 +68,7 @@ export default {
   mutations: { 
     setNetworkData(state) {
       // TODO
-      state.networkName = "zkSync Era Testnet";
+      state.networkName = "zkSync Era";
       state.networkCurrency = "ETH";
     }
   },

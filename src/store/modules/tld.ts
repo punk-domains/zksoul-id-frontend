@@ -13,20 +13,20 @@ export default {
   state: () => ({ 
     balance: 0, // user's domain balance
     discountPercentage: 0,
-    tldName: ".testzksoul",
-    tldAddress: "0xD15316d5D6Ce29Db5d1bE3191398F7F2C5e31CAA", // TODO
+    tldName: ".zksoul",
+    tldAddress: "0xe36507aD67Ac0aE6D27D22b407A9338b136315df", // TODO
     tldContract: null,
-    tldChainId: 280,
-    tldChainName: "zkSync Era Testnet",
-    minterAddress: "0xd013787d60fc5966b512EdEAb91085aEA5e287f0", // TODO
+    tldChainId: 324,
+    tldChainName: "zkSync Era",
+    minterAddress: "0xF74Ed4A6c76452dd55533697e3A477f266e70f21", // TODO
     minterContract: null,
     minterLoadingData: false,
     minterPaused: true,
-    minterTldPrice1: 1,
-    minterTldPrice2: 0.1,
-    minterTldPrice3: 0.01,
-    minterTldPrice4: 0.001,
-    minterTldPrice5: 0.0001,
+    minterTldPrice1: 0.5,
+    minterTldPrice2: 0.25,
+    minterTldPrice3: 0.05,
+    minterTldPrice4: 0.01,
+    minterTldPrice5: 0.0025,
     referralFee: 1000
   }),
 

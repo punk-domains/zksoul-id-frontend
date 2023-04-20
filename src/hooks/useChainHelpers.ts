@@ -26,6 +26,8 @@ export default function useChainHelpers() {
       return "Fantom";
     } else if (chainId === 280) {
       return "zkSync Era Testnet";
+    } else if (chainId === 324) {
+      return "zkSync Era";
     } else if (chainId === 4002) {
       return "Fantom Testnet";
     } else if (chainId === 42161) {
@@ -105,6 +107,11 @@ export default function useChainHelpers() {
         // zkSync era testnet
         urls = [
           "https://testnet.era.zksync.dev"
+        ];
+      } else if (networkId === 324) {
+        // zkSync era mainnet
+        urls = [
+          "https://mainnet.era.zksync.io"
         ];
       } else if (networkId === 4002) {
         // Fantom Testnet
@@ -296,6 +303,15 @@ export default function useChainHelpers() {
         chainName: "zkSync Era Testnet",
         nativeCurrency: { decimals: 18, name: "ETH", symbol: "ETH" }, 
         rpcUrls: ["https://testnet.era.zksync.dev"]
+      }] 
+    } else if (networkName == "zkSync Era") {
+      method = "wallet_addEthereumChain"
+      params = [{ 
+        blockExplorerUrls: [ "https://explorer.zksync.io" ],
+        chainId: "0x144",
+        chainName: "zkSync Era",
+        nativeCurrency: { decimals: 18, name: "ETH", symbol: "ETH" }, 
+        rpcUrls: ["https://mainnet.era.zksync.io"]
       }] 
     }
 
