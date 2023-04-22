@@ -16,12 +16,18 @@
 
           <div class="navbar-menu-buttons">
             <a 
-              class="btn btn-primary mx-2 navbar-menu-btn" 
+              class="btn btn-primary me-2 navbar-menu-btn" 
+              href="https://zealy.io/c/zksoulid/questboard" 
+              target="_blank"
+            >Quests</a>
+
+            <a 
+              class="btn btn-primary me-2 navbar-menu-btn" 
               href="https://mintsquare.io/collection/zksync/0xe36507ad67ac0ae6d27d22b407a9338b136315df" 
               target="_blank"
             >Collection</a>
 
-            <div v-if="isActivated" class="btn-group mx-2 navbar-menu-btn">
+            <div v-if="isActivated" class="btn-group me-2 navbar-menu-btn">
               <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 {{getNetworkName}}
               </button>
@@ -37,7 +43,7 @@
               </ul>
             </div>
 
-            <div v-if="isActivated" class="btn-group mx-2 navbar-menu-btn">
+            <div v-if="isActivated" class="btn-group me-2 navbar-menu-btn">
               <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
                 {{ getNameOrAddress }}
               </button>
@@ -53,9 +59,9 @@
               </ul>
             </div>
 
-            <button v-if="!isActivated" class="btn btn-primary navbar-menu-btn" @click="open">Connect wallet</button>
+            <button v-if="!isActivated" class="btn btn-primary navbar-menu-btn me-2" @click="open">Connect wallet</button>
 
-            <div v-if="isActivated" class="btn-group mx-2 navbar-menu-btn">
+            <div v-if="isActivated" class="btn-group me-2 navbar-menu-btn">
               <router-link tag="button" class="btn btn-primary" to="/send-tokens">Send Tokens</router-link>
             </div>
           </div>
